@@ -1,8 +1,8 @@
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
+const password = document.getElementById('passwordOne');
+const password2 = document.getElementById('passwordTwo');
 
 //Show input error messages
 function showError(input, message) {
@@ -50,6 +50,13 @@ function checkLength(input, min, max) {
   }
 }
 
+//Check passwords match
+function checkPasswordsMatch(inputOne, inputTwo) {
+  if(inputOne.value !== inputTwo.value) {
+    showError(inputTwo, 'Passwords do not match');
+  }
+}
+
 //Get field name
 function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
@@ -63,4 +70,5 @@ form.addEventListener('submit', function(e) {
   checkLength(username, 3, 15);
   checkLength(password, 6, 25);
   checkEmail(email);
+  checkPasswordsMatch(passwordOne, passwordTwo);
 });
