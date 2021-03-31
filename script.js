@@ -22,9 +22,29 @@ function showSuccess(input) {
 //Event listeners
 form.addEventListener('submit', function(e) {
   e.preventDefault();
+
   if(username.value === '') {
     showError(username, 'Username is required');
   } else {
     showSuccess(username);
   }
+
+  if(email.value === '') {
+    showError(email, 'Email is required');
+  } else {
+    showSuccess(email);
+  }
+
+  if(password.value === '') {
+    showError(password, 'Password is required');
+  } else {
+    showSuccess(password);
+  }
+
+  if(password2.value === '') {
+    showError(password2, 'Wrong password');
+  } else {
+    showSuccess(password2);
+  }
+
 });
